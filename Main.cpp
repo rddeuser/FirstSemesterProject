@@ -63,14 +63,6 @@ void purchaseInvestment() {
 //function declaration
 void turn();
 
-int main() {
-	//continue taking turns while player hasn't reached end of board
-	while (spotOnBoard < NUM_SPACES - 1) {
-		turn();
-	}//end while
-	return 0;
-}//end main
-
 void turn() {
 	//display board
 	//TODO: add display function
@@ -108,7 +100,7 @@ void turn() {
 	// TODO: add display function
 
 	//if statement to determine what it is they landed on
-	if (typeOfSpaces[spotOnBoard] == "") {//TODO: add types of spaces
+		if (typeOfSpaces[spotOnBoard] == "") {//TODO: add types of spaces
 		//TODO: add function
 	}//end if
 	else if (typeOfSpaces[spotOnBoard] == "") {//TODO: add types of spaces
@@ -124,7 +116,17 @@ void turn() {
 		//TODO: add function
 	}//end else
 	//TODO: Finish if statements
-}//end turn
+}
+
+
+int main() {
+	// Continue taking turns while player hasn't reached end of board
+	while (spotOnBoard < NUM_SPACES - 1) {
+		turn();
+	}
+	return 0;
+}
+
 /*------TESTED--------
 *
 *
