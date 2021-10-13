@@ -1,67 +1,88 @@
 /*
-Author: Jil Dietz
-*Date: 10/12/2021
-*Email: jdietz@dmacc.edu
-*Overview: This is a class that holds all the necessary player information so that that game can record,
-* and return values that can be accumulated at the end of the game.
+* Author: Becca Deuser, Eric Stalcup
+* Date: 09/27/21
+* Email: rddeuser@dmacc.edu, esstalcup@dmacc.edu
+* Overview: This is the early working model of how a turn would work in the Medieval Game of Life
 */
 
 #include <iostream>
 #include <iomanip>
-#include <string>
-
 using namespace std;
 
-class Player{
-private:
-    //declaring variables to generate
-    int kids = 0;
-    double money = 0.00;
-    string job, house, career;
-    bool marriage = false;
-    bool ownHouse = false;
-    double salary = 0.00;
-    int lifeCards = 0;
+// placeholder variables- remove as needed
+int spotOnBoard = 0;
+const int NUM_SPACES = 100;
+char board[NUM_SPACES][NUM_SPACES];	
+string typeOfSpaces[NUM_SPACES];
 
-public:
+void createBoard() {
+	// Currently suffering with this one
+}
 
-    void setJob(string job){this->job = job;}
-    void setHouse(string house) {this->house = house;}
-    void setSalary(double salary){this->salary = salary;}
-    void setCareer(string career){this->career = career;}
-    int getKids(){return kids;}
-    double getMoney(){return money;}
-    string getJob(){return job;}
-    string getHouse(){return house;}
-    bool getMarriage(){return marriage;}
-    bool getOwnedHouse(){return ownHouse;}
-    double getSalary(){return salary;}
-    int getLifeCards(){return lifeCards;}
-    string getCareer(){return career;}
+// function declaration
+void turn();
 
-    void addKids(int numOfKids){ //adds children if needed
+void turn() {
+	//display board
+	//TODO: add display function
 
-        kids+=numOfKids;
-    }
-    void addLifeCards(){ //adds life cards to the total
+	//display money, cards in hand, etc.
+	// TODO: add card display function
+	//declare and initialize spin
+	int spin = rand() % 10 + 1;
 
-        lifeCards++;
-    }
-    void addIncome(){ //adds salary to the overall income
+	//display spin to user
+	cout << "Spinning spinner..." << endl;
+	cout << "You have spun a " << spin << endl;
 
-        money += salary;
+	//check for long term investments
+	//TODO: add long-term investment
 
-    }
-    void obtainHouse(){ //determines if the player has a house
-        ownHouse = true;
-    }
-    void getMarried(){ //changes the status of married to true
+	//move player number of spaces if possible
+	spotOnBoard += spin;
 
-        marriage = true;
-    }
-    double makePayment(double cost){ //removes cost from total amounth of money
-        money -= cost;
-        return money;
-    }
-};
+	if (spotOnBoard >= NUM_SPACES) {
+		spotOnBoard = NUM_SPACES - 1; //if spot would exceed index, move to last index
+	}//end if
 
+	//change spot on board to represent player
+	board[spotOnBoard] = "O"; //or however we're representing their spot on the board
+
+	//display board
+	// TODO: add display function
+
+	//if statement to determine what it is they landed on
+		if (typeOfSpaces[spotOnBoard] == "") {//TODO: add types of spaces
+		//TODO: add function
+	}//end if
+	else if (typeOfSpaces[spotOnBoard] == "") {//TODO: add types of spaces
+		//TODO: add function
+	}//end else if
+	else if (typeOfSpaces[spotOnBoard] == "") {//TODO: add types of spaces
+		//TODO: add function
+	}//end else if
+	else if (typeOfSpaces[spotOnBoard] == "") {//TODO: add types of spaces
+		//TODO: add function
+	}//end else if
+	else {
+		//TODO: add function
+	}//end else
+	//TODO: Finish if statements
+}
+
+
+int main() {
+	createBoard();
+	// Continue taking turns while player hasn't reached end of board
+	while (spotOnBoard < NUM_SPACES - 1) {
+		turn();
+	}
+	return 0;
+}
+
+/*------TESTED--------
+*
+*
+*
+*
+*/ 
