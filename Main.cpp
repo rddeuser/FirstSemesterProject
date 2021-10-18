@@ -34,6 +34,38 @@ void displayBoard() {
 	cout << endl;
 }
 
+bool investment[] = { false, false, false, false, false, false, false, false, false, false }; 
+//Checks if spinned number has been invested by the player, if so. They gain some money. 
+void checkInvestment(int spin) {
+	//if the spinned number has been purchased they gain $100.
+	if (investment[spin - 1] == true) {
+		//TODO: add increment players money value
+	}//end if
+}
+//Allows the player to purchase 1 number per turn to invest in.
+void purchaseInvestment() {
+	int investNumber;
+	string availableNum = "";
+	//creat list of avalible numbers to purchase
+	for (int i : investment) {
+		if (investment[i] == false) {
+			availableNum += ", " + i;
+		}//end if
+	}//end for
+	do //
+	{
+		//Output which numbers are available for purchase.
+		cout << "The Following Numbers are Available for Purchase: " << availableNum << endl;
+		//User inputs number they would like to purchase
+		cout << "Which Number Would You Like to Invest In (-1 to cancel): " << endl;
+		cin >> investNumber;
+		if(investNumber == -1) {
+			return;
+		}
+	} while (investment[investNumber - 1] == true); //input validation
+	investment[investNumber - 1] == true; //update investment array after the player has choosen a number to invest in.
+}
+
 // function declaration
 void turn();
 
@@ -52,6 +84,7 @@ void turn() {
 
 	//check for long term investments
 	//TODO: add long-term investment
+	checkInvestment(spin);
 
 	//move player number of spaces if possible
 	spotOnBoard += spin;
@@ -84,7 +117,6 @@ void turn() {
 	}//end else
 	//TODO: Finish if statements
 }
-
 
 int main() {
 	displayBoard();

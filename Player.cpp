@@ -40,23 +40,18 @@ public:
 	string getCareer(){return career;}
 
 	void addKids(int numOfKids){ //adds children if needed
-
 		kids+=numOfKids;
 	}
 	void addLifeCards(){ //adds life cards to the total
-
 		lifeCards++;
 	}
 	void addIncome(){ //adds salary to the overall income
-
 		money += salary;
-
 	}
 	void obtainHouse(){ //determines if the player has a house
 		ownHouse = true;
 	}
 	void getMarried(){ //changes the status of married to true
-
 		marriage = true;
 	}
 	double makePayment(double cost){ //removes cost from total amounth of money
