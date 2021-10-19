@@ -5,6 +5,11 @@
  * Overview: Defines various game spaces and manipulates the Player's variables
  */
 
+/* Update by: Alicia Rustan
+ * Date: 10/12/2021
+ * color variables on spaces wasn't working. Changed to a virtual function that will be inherited by all tiles.
+ */
+
 #include <iostream>
 #include <string>
 #include "Player.cpp"
@@ -38,11 +43,13 @@ class Space {
 
 		// Method to be overloaded by other spaces
 		void spaceEffect(Player p);
+		virtual void Color() = 0;
 };
 
 // For salary spaces
 class SalarySpace : public Space {
 	string color = "green";
+	void Color() = green;
 
 	public:
 		// Add player's salary to player balance
@@ -56,6 +63,7 @@ class SalarySpace : public Space {
 // Generic subclass for orange spaces
 class OrangeSpace : Space {
 	string color = "orange";
+	void Color() = orange;
 };
 // For spaces that change the player's balance
 class BalanceChange : OrangeSpace {
@@ -141,6 +149,7 @@ class ChangeCareer : OrangeSpace {
 // Generic subclass for red spaces
 class RedSpace : Space {
 	string color = "red";
+	void Color() = red;
 };
 // Space at the end of college for players to choose career
 class CareerChoice : RedSpace {
