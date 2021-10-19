@@ -1,6 +1,8 @@
 /* Author: Noah Clark
+ * Originally Created: 09/28/2021
  * Date Last Updated: 10/19/2021
- * Space methods and classes
+ * Email: npclark@dmacc.edu
+ * Overview: Defines various game spaces and manipulates the Player's variables
  */
 
 #include <iostream>

@@ -7,6 +7,8 @@
 
 #include <iostream>
 #include <iomanip>
+#include "Player.cpp"
+#include "LifeSpaces.cpp"
 using namespace std;
 
 // placeholder variables- remove as needed
