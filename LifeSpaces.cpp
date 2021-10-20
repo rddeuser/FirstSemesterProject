@@ -7,6 +7,11 @@
  * color variables on spaces wasn't working. Changed to a virtual function that will be inherited by all tiles.
  */
 
+/* Update by: Alicia Rustan
+ * Date: 10/12/2021
+ * color variables on spaces wasn't working. Changed to a virtual function that will be inherited by all tiles.
+ */
+
 #include <iostream>
 #include <string>
 
@@ -14,6 +19,7 @@ using namespace std;
 
 // Base Class
 class Space {
+
 private:
     string display; // This is the flavor text for the space; "Won a beauty contest, earned $5,000," "Twins! Draw a LIFE card," "Midlife Crisis, draw a new career," etc
     string color; //placeholder for a space's color
@@ -47,7 +53,7 @@ private:
 
 // For salary spaces
 class SalarySpace : public Space {
-
+	void Color() = green;
     public:
         void spaceEffect() {
             // TODO: Logic to check if playermovement passes SalarySpace
@@ -60,6 +66,7 @@ class SalarySpace : public Space {
 
 // Generic subclass for orange spaces
 class OrangeSpace : Space {
+	void Color() = orange;
 };
 // For spaces that change the player's balance
 class BalanceChange : OrangeSpace {
@@ -183,7 +190,7 @@ class NightSchool : BlueSpace {
 // NOTE: all red spaces will stop the player early
 // Generic subclass for red spaces
 class RedSpace : Space {
-    void Color() {};
+	void Color() = red;
 };
 // Space at the end of college for players to choose career
 class CareerChoice : RedSpace {
